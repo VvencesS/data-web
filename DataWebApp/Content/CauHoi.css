@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.search-info .form-group {
+    margin-right: 1rem;
+}
+
+table.table tr th, table.table tr td {
+    text-align: center !important;
+}
+
+table.table tr td {
+    text-align: left;
+}
+
+table.table tr td {
+    border-top: 0 !important;
+}
+
+.profile {
+    font-size: 0.94rem;
+    margin-top: 1.5rem;
+}
+
+.padding-right-16rem {
+    padding-right: 16rem;
+}
+
+table.table th, table.table td {
+    text-align: center;
+}
+
+.font-size-08rem {
+    font-size: .8rem !important;
+}
+
+.search-info input.form-control:not([size]):not([multiple]) {
+    height: calc(2.25rem + 2px);
+}

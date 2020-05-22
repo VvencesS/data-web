@@ -1,0 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.login-user .modal-content {
+    background-color: #002147 !important;
+    color: #FFF !important;
+}

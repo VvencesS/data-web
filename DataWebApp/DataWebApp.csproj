@@ -121,7 +121,7 @@
     <Content Include="admin\LoginAdmin.aspx" />
     <Content Include="admin\QLCauHoi\ChinhSua.aspx" />
     <Content Include="admin\QLCauHoi\ThemMoi.aspx" />
-    <Content Include="admin\QLDSNhomCoDinh\ImportDSNhom.aspx" />
+    <Content Include="admin\QLDSNhomCoDinh\XemDanhSachNhom.aspx" />
     <Content Include="admin\QLDuLieuNguoiDung\DuLieuNguoiDung\ImportDuLieuNguoiDung.aspx" />
     <Content Include="admin\QLDuLieuNguoiDung\DuLieuNguoiDung\XemDuLieuNguoiDung.aspx" />
     <Content Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTaiKhoanTheoNhom.aspx" />
@@ -1904,12 +1904,12 @@
     <Compile Include="admin\QLCauHoi\ThemMoi.aspx.designer.cs">
       <DependentUpon>ThemMoi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\QLDSNhomCoDinh\ImportDSNhom.aspx.cs">
-      <DependentUpon>ImportDSNhom.aspx</DependentUpon>
+    <Compile Include="admin\QLDSNhomCoDinh\XemDanhSachNhom.aspx.cs">
+      <DependentUpon>XemDanhSachNhom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\QLDSNhomCoDinh\ImportDSNhom.aspx.designer.cs">
-      <DependentUpon>ImportDSNhom.aspx</DependentUpon>
+    <Compile Include="admin\QLDSNhomCoDinh\XemDanhSachNhom.aspx.designer.cs">
+      <DependentUpon>XemDanhSachNhom.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\QLDuLieuNguoiDung\DuLieuNguoiDung\ImportDuLieuNguoiDung.aspx.cs">
       <DependentUpon>ImportDuLieuNguoiDung.aspx</DependentUpon>

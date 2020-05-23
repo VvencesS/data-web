@@ -126,9 +126,6 @@
                             </div>
                         </div>
                         <div class="col-sm-9">
-                            <div class="header-main-body border-bottom py-2">
-                                <a href="#"><i class="fas fa-home"></i></a> / <a href="#">Quản lý duyệt ảnh</a>
-                            </div>
                             <div class="content-main-body">
                                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                                 </asp:ContentPlaceHolder>

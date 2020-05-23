@@ -6,3 +6,7 @@
 .search-info .form-group {
     margin-right: 1.5rem;
 }
+
+table.table tr th, table.table tr td {
+    text-align: center !important;
+}

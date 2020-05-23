@@ -21,8 +21,6 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
             if (!IsPostBack)
             {
                 LoadDataDrpChonTruong();
-                //LoadDataDrpChonKhoa();
-                //LoadDataDrpChonLop();
             }
         }
         void LoadDataDrpChonTruong()

@@ -11,8 +11,53 @@ namespace DataWebApp.admin.QLCauHoi
 {
 
 
-    public partial class ThemMoi
+    public partial class XemSuaXoa
     {
+
+        /// <summary>
+        /// mul control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView mul;
+
+        /// <summary>
+        /// v0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View v0;
+
+        /// <summary>
+        /// txtTimKiem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTimKiem;
+
+        /// <summary>
+        /// drpChonTrangThai control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpChonTrangThai;
+
+        /// <summary>
+        /// lnkTimKiem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkTimKiem;
 
         /// <summary>
         /// hdInsert control.
@@ -24,6 +69,15 @@ namespace DataWebApp.admin.QLCauHoi
         protected global::System.Web.UI.WebControls.HiddenField hdInsert;
 
         /// <summary>
+        /// hdIDQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdIDQuestion;
+
+        /// <summary>
         /// hdImage control.
         /// </summary>
         /// <remarks>
@@ -31,6 +85,33 @@ namespace DataWebApp.admin.QLCauHoi
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdImage;
+
+        /// <summary>
+        /// lnkThemMoi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkThemMoi;
+
+        /// <summary>
+        /// rptQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptQuestion;
+
+        /// <summary>
+        /// v1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View v1;
 
         /// <summary>
         /// drpTrangThai control.

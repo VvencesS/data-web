@@ -71,8 +71,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            <div class="menu-bar">
-                                <ul class="nav justify-content-center">
+                            <div class="menu-bar pb-5">
+                                <ul class="nav justify-content-center pb-5">
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Quản lý danh sách nhóm cố định <i class="fas fa-sort-down float-right"></i></a>
                                         <ul class="nav justify-content-center submenu-1">
@@ -134,7 +134,7 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer p-3 bg-white">
+            <footer class="footer py-5 bg-white">
 	            <div class="container">
 		            <div class="row">
 		                <div class="col-sm-12">Thiết kế và phát triển bởi Nhóm 1 - D12CNPM2 © 2020</div>

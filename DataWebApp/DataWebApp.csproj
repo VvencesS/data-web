@@ -119,8 +119,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="admin\LoginAdmin.aspx" />
-    <Content Include="admin\QLCauHoi\ChinhSua.aspx" />
     <Content Include="admin\QLCauHoi\ThemMoi.aspx" />
+    <Content Include="admin\QLCauHoi\XemSuaXoa.aspx" />
     <Content Include="admin\QLDSNhomCoDinh\XemDanhSachNhom.aspx" />
     <Content Include="admin\QLDuLieuNguoiDung\DuLieuNguoiDung\ImportDuLieuNguoiDung.aspx" />
     <Content Include="admin\QLDuLieuNguoiDung\DuLieuNguoiDung\XemDuLieuNguoiDung.aspx" />
@@ -1890,19 +1890,19 @@
     <Compile Include="admin\LoginAdmin.aspx.designer.cs">
       <DependentUpon>LoginAdmin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\QLCauHoi\ChinhSua.aspx.cs">
-      <DependentUpon>ChinhSua.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\QLCauHoi\ChinhSua.aspx.designer.cs">
-      <DependentUpon>ChinhSua.aspx</DependentUpon>
-    </Compile>
     <Compile Include="admin\QLCauHoi\ThemMoi.aspx.cs">
       <DependentUpon>ThemMoi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\QLCauHoi\ThemMoi.aspx.designer.cs">
       <DependentUpon>ThemMoi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\QLCauHoi\XemSuaXoa.aspx.cs">
+      <DependentUpon>XemSuaXoa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\QLCauHoi\XemSuaXoa.aspx.designer.cs">
+      <DependentUpon>XemSuaXoa.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\QLDSNhomCoDinh\XemDanhSachNhom.aspx.cs">
       <DependentUpon>XemDanhSachNhom.aspx</DependentUpon>
@@ -1980,6 +1980,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model\Group.cs" />
+    <Compile Include="Model\Question.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -2006,6 +2007,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Files\" />
+    <Folder Include="images\question\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

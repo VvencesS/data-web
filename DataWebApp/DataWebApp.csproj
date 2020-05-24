@@ -124,7 +124,7 @@
     <Content Include="admin\QLDSNhomCoDinh\XemDanhSachNhom.aspx" />
     <Content Include="admin\QLDuLieuNguoiDung\DuLieuNguoiDung\ImportDuLieuNguoiDung.aspx" />
     <Content Include="admin\QLDuLieuNguoiDung\DuLieuNguoiDung\XemDuLieuNguoiDung.aspx" />
-    <Content Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTaiKhoanTheoNhom.aspx" />
+    <Content Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTaiKhoanNhom.aspx" />
     <Content Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTungTaiKhoan.aspx" />
     <Content Include="admin\QLDuyetAnh\DuyetAnhTheoNhom.aspx" />
     <Content Include="admin\QLDuyetAnh\DuyetAnhTungTaiKhoan.aspx" />
@@ -1925,12 +1925,12 @@
     <Compile Include="admin\QLDuLieuNguoiDung\DuLieuNguoiDung\XemDuLieuNguoiDung.aspx.designer.cs">
       <DependentUpon>XemDuLieuNguoiDung.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTaiKhoanTheoNhom.aspx.cs">
-      <DependentUpon>KichHoatTaiKhoanTheoNhom.aspx</DependentUpon>
+    <Compile Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTaiKhoanNhom.aspx.cs">
+      <DependentUpon>KichHoatTaiKhoanNhom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTaiKhoanTheoNhom.aspx.designer.cs">
-      <DependentUpon>KichHoatTaiKhoanTheoNhom.aspx</DependentUpon>
+    <Compile Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTaiKhoanNhom.aspx.designer.cs">
+      <DependentUpon>KichHoatTaiKhoanNhom.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTungTaiKhoan.aspx.cs">
       <DependentUpon>KichHoatTungTaiKhoan.aspx</DependentUpon>
@@ -2024,6 +2024,35 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

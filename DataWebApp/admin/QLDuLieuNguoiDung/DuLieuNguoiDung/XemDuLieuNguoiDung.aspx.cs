@@ -145,5 +145,10 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
                     break;
             }
         }
+
+        protected void lnkExport_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

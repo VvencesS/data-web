@@ -31,6 +31,13 @@ namespace DataWebApp.Model
 
             return SQLDB.SQLDB.GetData(command);
         }
+        public DataTable GetUserListByIDGroup(int idG)
+        {
+            SqlCommand command = new SqlCommand("Select * from User_ where active='True' and id_Group=@idG");
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@idG", idG);
+            return SQLDB.SQLDB.GetData(command);
+        }
         public void Insert(int idGroup, string studentCode, string name, bool gener, string cmt, 
             DateTime birthday, string address, string phone, string email, DateTime create, DateTime update, bool status, bool active)
         {
@@ -96,6 +103,15 @@ namespace DataWebApp.Model
             command.Parameters.AddWithValue("@update", update);
             command.Parameters.AddWithValue("@status", status);
             command.Parameters.AddWithValue("@active", active);
+
+            SQLDB.SQLDB.ExecuteNoneQuery(command);
+        }
+        public void UpdateStatus(int id, bool status)
+        {
+            SqlCommand command = new SqlCommand("Update User_ set status=@status where id_User=@id");
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@status", status);
+            command.Parameters.AddWithValue("@id", id);
 
             SQLDB.SQLDB.ExecuteNoneQuery(command);
         }

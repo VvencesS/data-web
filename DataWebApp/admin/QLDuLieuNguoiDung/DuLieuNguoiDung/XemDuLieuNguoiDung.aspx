@@ -45,7 +45,7 @@
                 <asp:HiddenField ID="hdIDGroup" runat="server" />
                 <div class="save-export mt-3">
                     <asp:LinkButton ID="lnkImport" runat="server" CssClass="btn btn-primary font-size-08rem float-right ml-2 mb-3" OnClick="lnkImport_Click">Import Excel</asp:LinkButton>
-                    <asp:LinkButton ID="lnkExport" runat="server" CssClass="btn btn-primary font-size-08rem float-right ml-2 mb-3">Export Excel</asp:LinkButton>
+                    <asp:LinkButton ID="lnkExport" runat="server" CssClass="btn btn-primary font-size-08rem float-right ml-2 mb-3" OnClick="lnkExport_Click">Export Excel</asp:LinkButton>
                 </div>
                 <asp:Repeater ID="rptUser" runat="server" OnItemCommand="rptUser_ItemCommand">
                     <HeaderTemplate>

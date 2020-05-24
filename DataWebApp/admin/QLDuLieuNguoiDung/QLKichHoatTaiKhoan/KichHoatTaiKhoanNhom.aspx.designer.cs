@@ -11,7 +11,7 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.QLKichHoatTaiKhoan
 {
 
 
-    public partial class KichHoatTungTaiKhoan
+    public partial class KichHoatTaiKhoanNhom
     {
 
         /// <summary>
@@ -51,6 +51,15 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.QLKichHoatTaiKhoan
         protected global::System.Web.UI.WebControls.DropDownList drpChonLop;
 
         /// <summary>
+        /// drpTrangThai control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpTrangThai;
+
+        /// <summary>
         /// lnkTimKiem control.
         /// </summary>
         /// <remarks>
@@ -60,39 +69,12 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.QLKichHoatTaiKhoan
         protected global::System.Web.UI.WebControls.LinkButton lnkTimKiem;
 
         /// <summary>
-        /// hdInsert control.
+        /// rptGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdInsert;
-
-        /// <summary>
-        /// hdIDUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdIDUser;
-
-        /// <summary>
-        /// hdIDGroup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdIDGroup;
-
-        /// <summary>
-        /// rptUser control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptUser;
+        protected global::System.Web.UI.WebControls.Repeater rptGroup;
     }
 }

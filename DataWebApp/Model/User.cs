@@ -11,24 +11,32 @@ namespace DataWebApp.Model
     {
         public DataTable GetUserListAll()
         {
-            SqlCommand command = new SqlCommand("Select * from User_");
+            SqlCommand command = new SqlCommand("Select * from User_ where active='True'");
             command.CommandType = CommandType.Text;
             return SQLDB.SQLDB.GetData(command);
         }
         public DataTable GetUserListByStudentCode(string code)
         {
-            SqlCommand command = new SqlCommand("Select * from User_ where student_Code=@code");
+            SqlCommand command = new SqlCommand("Select * from User_ where active='True' and student_Code=@code");
             command.CommandType = CommandType.Text;
             command.Parameters.AddWithValue("@code", code);
 
             return SQLDB.SQLDB.GetData(command);
         }
+        public DataTable GetUserByID(int id)
+        {
+            SqlCommand command = new SqlCommand("Select * from User_ where active='True' and id_User=@id");
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@id", id);
+
+            return SQLDB.SQLDB.GetData(command);
+        }
         public void Insert(int idGroup, string studentCode, string name, bool gener, string cmt, 
-            DateTime birthday, string address, string phone, string email, DateTime create, DateTime update, bool status)
+            DateTime birthday, string address, string phone, string email, DateTime create, DateTime update, bool status, bool active)
         {
             SqlCommand command = new SqlCommand(
                 "Insert into User_ values(@idGroup,@studentCode,@name,@gener," +
-                "@cmt,@birthday,@address,@phone,@email,@status,@create,'',@update,'')");
+                "@cmt,@birthday,@address,@phone,@email,@status,@create,'',@update,'',@active)");
             command.CommandType = CommandType.Text;
             command.Parameters.AddWithValue("@idGroup", idGroup);
             command.Parameters.AddWithValue("@studentCode", studentCode);
@@ -42,15 +50,16 @@ namespace DataWebApp.Model
             command.Parameters.AddWithValue("@create", create);
             command.Parameters.AddWithValue("@update", update);
             command.Parameters.AddWithValue("@status", status);
+            command.Parameters.AddWithValue("@active", active);
 
             SQLDB.SQLDB.ExecuteNoneQuery(command);
         }
         public void Update(int id, int idGroup, string studentCode, string name, bool gener, string cmt,
-            DateTime birthday, string address, string phone, string email, DateTime create, DateTime update, bool status)
+            DateTime birthday, string address, string phone, string email, DateTime update, bool status, bool active)
         {
-            SqlCommand command = new SqlCommand("Update Question set id_Group=@idGroup,student_Code=@studentCode," +
+            SqlCommand command = new SqlCommand("Update User_ set id_Group=@idGroup,student_Code=@studentCode," +
                 "name=@name,gener=@gener,cmt=@cmt,birthday=@birthday,address=@address,phone=@phone,email=@email," +
-                "status=@status,created_Date=@create,updated_Date=@update where id_User=@id");
+                "status=@status,updated_Date=@update,active=@active where id_User=@id");
             command.CommandType = CommandType.Text;
             command.Parameters.AddWithValue("@idGroup", idGroup);
             command.Parameters.AddWithValue("@studentCode", studentCode);
@@ -61,19 +70,19 @@ namespace DataWebApp.Model
             command.Parameters.AddWithValue("@address", address);
             command.Parameters.AddWithValue("@phone", phone);
             command.Parameters.AddWithValue("@email", email);
-            command.Parameters.AddWithValue("@create", create);
             command.Parameters.AddWithValue("@update", update);
             command.Parameters.AddWithValue("@status", status);
+            command.Parameters.AddWithValue("@active", active);
             command.Parameters.AddWithValue("@id", id);
 
             SQLDB.SQLDB.ExecuteNoneQuery(command);
         }
         public void UpdateByStudentCode(int idGroup, string studentCode, string name, bool gener, string cmt,
-            DateTime birthday, string address, string phone, string email, DateTime update, bool status)
+            DateTime birthday, string address, string phone, string email, DateTime update, bool status, bool active)
         {
-            SqlCommand command = new SqlCommand("Update Question set id_Group=@idGroup," +
+            SqlCommand command = new SqlCommand("Update User_ set id_Group=@idGroup," +
                 "name=@name,gener=@gener,cmt=@cmt,birthday=@birthday,address=@address,phone=@phone,email=@email," +
-                "status=@status,updated_Date=@update where student_Code=@studentCode");
+                "status=@status,updated_Date=@update, active=@active where student_Code=@studentCode");
             command.CommandType = CommandType.Text;
             command.Parameters.AddWithValue("@idGroup", idGroup);
             command.Parameters.AddWithValue("@studentCode", studentCode);
@@ -86,12 +95,13 @@ namespace DataWebApp.Model
             command.Parameters.AddWithValue("@email", email);
             command.Parameters.AddWithValue("@update", update);
             command.Parameters.AddWithValue("@status", status);
+            command.Parameters.AddWithValue("@active", active);
 
             SQLDB.SQLDB.ExecuteNoneQuery(command);
         }
         public void Delete(int id)
         {
-            SqlCommand command = new SqlCommand("Update User_ set status='False' where id_User=@id");
+            SqlCommand command = new SqlCommand("Update User_ set active='False' where id_User=@id");
             command.CommandType = CommandType.Text;
             command.Parameters.AddWithValue("@id", id);
 

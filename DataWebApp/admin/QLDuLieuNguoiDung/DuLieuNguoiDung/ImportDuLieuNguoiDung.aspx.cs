@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using DataWebApp.Model;
 using System.Data.Common;
+using DataWebApp.Function;
 
 namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
 {
@@ -130,8 +131,7 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
                     for (int i = 0; i < data.Rows.Count; i++)
                     {
                         bool gender = data.Rows[i]["Giới tính"].ToString().Trim() == "Nam" ? true : false;
-                        string iDate = data.Rows[i]["Ngày sinh"].ToString().Trim();
-                        DateTime ngaySinh = DateTime.Parse(iDate);
+                        DateTime ngaySinh = XyLyNgayThang.XuLyChuoiNgayThang(data.Rows[i]["Ngày sinh"].ToString().Trim().Substring(0, 10));
                         DataTable existingUser = _user.GetUserListByStudentCode(data.Rows[i]["Mã sinh viên"].ToString().Trim());
                         // Nếu mã sinh viên chưa tồn tại trong DB thì thêm mới
                         if (existingUser == null || existingUser.Rows.Count == 0)
@@ -139,7 +139,7 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
                             _user.Insert(int.Parse(drpChonLop.SelectedValue.ToString()), data.Rows[i]["Mã sinh viên"].ToString().Trim(), 
                                 data.Rows[i]["Tên sinh viên"].ToString().Trim(), gender, data.Rows[i]["CMT"].ToString().Trim(),
                                 ngaySinh, data.Rows[i]["Địa chỉ"].ToString().Trim(), data.Rows[i]["SDT"].ToString().Trim(), 
-                                data.Rows[i]["Email"].ToString().Trim(), DateTime.Now, DateTime.Now, true);
+                                data.Rows[i]["Email"].ToString().Trim(), DateTime.Now, DateTime.Now, false, true);
                         }
                         // Ngược lại, nhân viên đã tồn tại trong DB thì update
                         else
@@ -147,7 +147,7 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
                             _user.UpdateByStudentCode(int.Parse(drpChonLop.SelectedValue.ToString()), data.Rows[i]["Mã sinh viên"].ToString().Trim(),
                                 data.Rows[i]["Tên sinh viên"].ToString().Trim(), gender, data.Rows[i]["CMT"].ToString().Trim(),
                                 ngaySinh, data.Rows[i]["Địa chỉ"].ToString().Trim(), data.Rows[i]["SDT"].ToString().Trim(),
-                                data.Rows[i]["Email"].ToString().Trim(), DateTime.Now, true);
+                                data.Rows[i]["Email"].ToString().Trim(), DateTime.Now, false, true);
                         }
                     }
                 }

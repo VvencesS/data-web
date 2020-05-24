@@ -97,7 +97,7 @@
                             <asp:CheckBox ID="chkActive1" runat="server" /></td>
                     </tr>
                 </table>
-                <asp:Button ID="btnUpdate" runat="server" Text="Thêm mới" CssClass="btn btn-primary font-size-08rem mb-2 float-right" OnClick="btnUpdate_Click"></asp:Button>
+                <asp:Button ID="btnUpdate" runat="server" Text="Cập nhật" CssClass="btn btn-primary font-size-08rem mb-2 float-right" OnClick="btnUpdate_Click"></asp:Button>
             </asp:View>
             <asp:View ID="v2" runat="server">
                 <h5>Thêm mới lớp</h5>
@@ -121,7 +121,7 @@
                             <asp:CheckBox ID="chkActive2" runat="server" /></td>
                     </tr>
                 </table>
-                <asp:Button ID="btnUpdate1" runat="server" Text="Thêm mới" CssClass="btn btn-primary font-size-08rem mb-2 float-right" OnClick="btnUpdate1_Click"></asp:Button>
+                <asp:Button ID="btnUpdate1" runat="server" Text="Cập nhật" CssClass="btn btn-primary font-size-08rem mb-2 float-right" OnClick="btnUpdate1_Click"></asp:Button>
             </asp:View>
         </asp:MultiView>
     </div>

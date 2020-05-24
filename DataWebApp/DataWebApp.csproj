@@ -1981,6 +1981,7 @@
     </Compile>
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -2006,8 +2007,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Files\" />
     <Folder Include="images\question\" />
+    <Folder Include="UploadFile\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

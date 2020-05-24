@@ -10,17 +10,21 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Configuration;
 using DataWebApp.Model;
+using System.Data.Common;
 
 namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
 {
     public partial class ImportDuLieuNguoiDung : System.Web.UI.Page
     {
         Group _group = new Group();
+        User _user = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadDataDrpChonTruong();
+                LoadDataDrpChonKhoa();
+                BindGridview();
             }
         }
         void LoadDataDrpChonTruong()
@@ -30,7 +34,13 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
             drpChonTruong.DataTextField = "name_Group";
             drpChonTruong.DataBind();
         }
-        
+        void LoadDataDrpChonKhoa()
+        {
+            drpChonKhoa.DataSource = _group.GetKhoaList();
+            drpChonKhoa.DataValueField = "id_Group";
+            drpChonKhoa.DataTextField = "name_Group";
+            drpChonKhoa.DataBind();
+        }
         void LoadDataDrpChonKhoaByTruong()
         {
             drpChonKhoa.DataSource = _group.GetKhoaListByTruong(int.Parse(drpChonTruong.SelectedValue.ToString()));
@@ -45,52 +55,123 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
             drpChonLop.DataTextField = "name_Group";
             drpChonLop.DataBind();
         }
+
+        void BindGridview()
+        {
+            gvUser.DataSource = _user.GetUserListAll();
+            gvUser.DataBind();
+        }
+
         protected void btnUpload_Click(object sender, EventArgs e)
         {
+            string path = string.Concat(Server.MapPath("~/UploadFile/" + fileUploadExcel.FileName));
+            fileUploadExcel.SaveAs(path);
+
             if (fileUploadExcel.HasFile)
             {
-                string FileName = Path.GetFileName(fileUploadExcel.PostedFile.FileName);
-                string Extension = Path.GetExtension(fileUploadExcel.PostedFile.FileName);
-                string FolderPath = ConfigurationManager.AppSettings["FolderPath"];
+                // Đọc dữ liệu từ tập tin excel trả về DataTable
+                DataTable data = ReadDataFromExcelFile(path);
 
-                string FilePath = Server.MapPath(FolderPath + FileName);
-                fileUploadExcel.SaveAs(FilePath);
-                
+                // Import dữ liệu đọc được vào database
+                ImportIntoDatabase(data);
+
+                // Lấy hết dữ liệu import từ database hiển thị lên gridView
+                ShowData();
+            }
+            else
+            {
+                Response.Write("Vui lòng chọn tập tin Excel cần import");
             }
         }
-
-        private DataTable ReadExelFile(string sheetName, string path)
+        private DataTable ReadDataFromExcelFile(string path)
         {
-            using(OleDbConnection conn = new OleDbConnection())
+            string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties=Excel 8.0";
+            // Tạo đối tượng kết nối
+            OleDbConnection oledbConn = new OleDbConnection(connectionString);
+            DataTable data = null;
+            try
             {
-                DataTable dt = new DataTable();
-                conn.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + path + ";Extended Properties='Excel 12.0 Xml;HDR=Yes;IMEX=1 ;MAXSCANROWS=0'";
-                using(OleDbCommand comm = new OleDbCommand())
+                // Mở kết nối
+                oledbConn.Open();
+
+                // Tạo đối tượng OleDBCommand và query data từ sheet có tên "Sheet1"
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM [Sheet1$]", oledbConn);
+
+                // Tạo đối tượng OleDbDataAdapter để thực thi việc query lấy dữ liệu từ tập tin excel
+                OleDbDataAdapter oleda = new OleDbDataAdapter();
+
+                oleda.SelectCommand = cmd;
+
+                // Tạo đối tượng DataSet để hứng dữ liệu từ tập tin excel
+                DataSet ds = new DataSet();
+
+                // Đổ đữ liệu từ tập excel vào DataSet
+                oleda.Fill(ds);
+
+                data = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.ToString());
+            }
+            finally
+            {
+                // Đóng chuỗi kết nối
+                oledbConn.Close();
+            }
+            return data;
+        }
+        private void ImportIntoDatabase(DataTable data)
+        {
+            if (data != null && data.Rows.Count > 0)
+            {
+                try
                 {
-                    comm.CommandText = "Select * from [" + sheetName + " $]";
-                    comm.Connection = conn;
-                    using(OleDbDataAdapter da = new OleDbDataAdapter())
+                    for (int i = 0; i < data.Rows.Count; i++)
                     {
-                        da.SelectCommand = comm;
-                        da.Fill(dt);
-                        return dt;
+                        bool gender = data.Rows[i]["Giới tính"].ToString().Trim() == "Nam" ? true : false;
+                        string iDate = data.Rows[i]["Ngày sinh"].ToString().Trim();
+                        DateTime ngaySinh = DateTime.Parse(iDate);
+                        DataTable existingUser = _user.GetUserListByStudentCode(data.Rows[i]["Mã sinh viên"].ToString().Trim());
+                        // Nếu mã sinh viên chưa tồn tại trong DB thì thêm mới
+                        if (existingUser == null || existingUser.Rows.Count == 0)
+                        {
+                            _user.Insert(int.Parse(drpChonLop.SelectedValue.ToString()), data.Rows[i]["Mã sinh viên"].ToString().Trim(), 
+                                data.Rows[i]["Tên sinh viên"].ToString().Trim(), gender, data.Rows[i]["CMT"].ToString().Trim(),
+                                ngaySinh, data.Rows[i]["Địa chỉ"].ToString().Trim(), data.Rows[i]["SDT"].ToString().Trim(), 
+                                data.Rows[i]["Email"].ToString().Trim(), DateTime.Now, DateTime.Now, true);
+                        }
+                        // Ngược lại, nhân viên đã tồn tại trong DB thì update
+                        else
+                        {
+                            _user.UpdateByStudentCode(int.Parse(drpChonLop.SelectedValue.ToString()), data.Rows[i]["Mã sinh viên"].ToString().Trim(),
+                                data.Rows[i]["Tên sinh viên"].ToString().Trim(), gender, data.Rows[i]["CMT"].ToString().Trim(),
+                                ngaySinh, data.Rows[i]["Địa chỉ"].ToString().Trim(), data.Rows[i]["SDT"].ToString().Trim(),
+                                data.Rows[i]["Email"].ToString().Trim(), DateTime.Now, true);
+                        }
                     }
                 }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.ToString());
+                }
+
             }
         }
-
-        protected void drpChonKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        private void ShowData()
         {
-            LoadDataDrpChonLopByKhoa();
-        }
-
-        protected void drpChonLop_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            gvUser.DataSource = _user.GetUserListAll();
+            gvUser.DataBind();
         }
 
         protected void drpChonTruong_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDataDrpChonKhoaByTruong();
+        }
+
+        protected void drpChonKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDataDrpChonLopByKhoa();
         }
     }
 }

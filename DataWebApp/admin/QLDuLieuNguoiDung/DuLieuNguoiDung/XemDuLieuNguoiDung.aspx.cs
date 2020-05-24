@@ -16,6 +16,11 @@ namespace DataWebApp.admin.QLDuLieuNguoiDung.DuLieuNguoiDung
         User _user = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Nếu chưa login
+            if (Session["username"] == null)
+            {
+                Response.Redirect("../../LoginAdmin.aspx");
+            }
             if (!IsPostBack)
             {
                 LoadDataDrpChonTruong();

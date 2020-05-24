@@ -1980,6 +1980,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\clsAdmin.cs" />
     <Compile Include="Model\Group.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\User.cs" />

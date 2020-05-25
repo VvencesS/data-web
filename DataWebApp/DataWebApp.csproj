@@ -117,7 +117,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="admin\LoginAdmin.aspx" />
     <Content Include="admin\QLCauHoi\ThemMoi.aspx" />
     <Content Include="admin\QLCauHoi\XemSuaXoa.aspx" />
@@ -128,7 +127,6 @@
     <Content Include="admin\QLDuLieuNguoiDung\QLKichHoatTaiKhoan\KichHoatTungTaiKhoan.aspx" />
     <Content Include="admin\QLDuyetAnh\DuyetAnhTheoNhom.aspx" />
     <Content Include="admin\QLDuyetAnh\DuyetAnhTungTaiKhoan.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1840,6 +1838,7 @@
     <Content Include="images\admin\image-user.png" />
     <Content Include="images\admin\logo-epu.svg" />
     <Content Include="images\admin\united-kingdom.png" />
+    <Content Include="LoginUser.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\javascript.js" />
@@ -1954,21 +1953,7 @@
       <DependentUpon>DuyetAnhTungTaiKhoan.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1979,6 +1964,13 @@
     <Compile Include="Function\XyLyNgayThang.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginUser.aspx.cs">
+      <DependentUpon>LoginUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginUser.aspx.designer.cs">
+      <DependentUpon>LoginUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\clsAdmin.cs" />
     <Compile Include="Model\Group.cs" />

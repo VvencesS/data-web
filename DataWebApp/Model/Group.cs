@@ -48,6 +48,14 @@ namespace DataWebApp.Model
 
             return SQLDB.SQLDB.GetData(command);
         }
+        public DataTable GetKhoaByParent(int parent)
+        {
+            SqlCommand command = new SqlCommand("Select * from Group_ where id_Group=@parent");
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@parent", parent);
+
+            return SQLDB.SQLDB.GetData(command);
+        }
         public void Insert(string name, int level, int parent, DateTime create, DateTime update, bool active)
         {
             SqlCommand command = new SqlCommand("Insert into Group_ values(@name,@level,@parent, @create, '', @update, '',@active)");

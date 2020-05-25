@@ -1,41 +1,112 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="DataWebApp._Default" %>
+﻿<%@ Page Title="Up ảnh theo câu hỏi" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="DataWebApp._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="header-main-body border-bottom py-2">
+        <a href="#"><i class="fas fa-home"></i></a>/ <a href="#">Đăng ảnh theo câu hỏi</a>
     </div>
+    <div class="content-main-body">
+        <div class="profile d-flex">
+            <div class="personal-information mr-5">
+                <div class="personal-information-header d-flex align-items-end">
+                    <div class="mr-2 font-weight-bold">Thông tin cá nhân</div>
+                    <div class="padding-right-16rem" style="height: 1.5px; background-color: gray; margin-bottom: 4px;"></div>
+                </div>
+                <div class="personal-information-content">
+                    <table class="table">
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+                        <tbody>
+                            <tr>
+                                <td scope="row">Mã sinh viên:</td>
+                                <td>
+                                    <asp:Label ID="lblMaSV" runat="server" Text="Label"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Tên sinh viên:</td>
+                                <td>
+                                    <asp:Label ID="lblTenSV" runat="server" Text="Label"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">CMT:</td>
+                                <td>
+                                    <asp:Label ID="lblCMT" runat="server" Text="Label"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Ngày sinh</td>
+                                <td>
+                                    <asp:Label ID="lblNS" runat="server" Text="Label"></asp:Label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="basic-information">
+                <div class="basic-information-header  d-flex align-items-end">
+                    <div class="mr-2 font-weight-bold">Thông tin cơ bản</div>
+                    <div class="padding-right-16rem" style="height: 1.5px; background-color: gray; margin-bottom: 4px;"></div>
+                </div>
+                <div class="basic-information-content">
+                    <table class="table">
+
+                        <tbody>
+                            <tr>
+                                <td scope="row">Trường:</td>
+                                <td>Đại học Điện Lực</td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Khoa:</td>
+                                <td>
+                                    <asp:Label ID="lblKhoa" runat="server" Text="Label"></asp:Label></td>
+                            </tr>
+                            <tr>
+                                <td scope="row">Lớp:</td>
+                                <td>
+                                    <asp:Label ID="lblLop" runat="server" Text="Label"></asp:Label></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+        <div class="photos">
+            <div class="photos-header  d-flex align-items-end">
+                <div class="mr-2 font-weight-bold">Đăng ảnh theo câu hỏi</div>
+                <div class="padding-right-16rem" style="height: 1.5px; background-color: gray; margin-bottom: 4px;"></div>
+            </div>
+            <div class="photos-contents">
+                <asp:Repeater ID="rptImgUser" runat="server">
+                    <HeaderTemplate>
+                        <table>
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <tr>
+                            <td>
+                                <div class="item ml-5 mb-5">
+                                    <p class="question">
+                                        <span class="font-weight-bold">Câu hỏi: </span><%#:Eval("[content]") %> <span style="color: red;">*</span>
+                                        <i class="fas fa-camera custom-file" id="uploadfile">
+                                            <asp:FileUpload ID="fileUpImg" runat="server" class="custom-file-input" />
+                                        </i>
+                                    </p>
+                                    <div class="img-user d-flex px-4">
+                                        <img class="pull-left img-user-sample mr-2" src='/images/question/<%#:Eval("image_Des") %>' alt="">
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <asp:LinkButton ID="lnkKichHoat" runat="server" CommandName="update" CommandArgument='<%#:Eval("id_Question") %>' CssClass="p-2 btn btn-primary font-size-08rem">
+                                    Cập nhật
+                                </asp:LinkButton>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                    <FooterTemplate>
+                        </table>
+                    </FooterTemplate>
+                </asp:Repeater>
+
+
+            </div>
         </div>
     </div>
 

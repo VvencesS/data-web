@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using DataWebApp.Function;
 
 namespace DataWebApp.Model
 {
@@ -122,6 +123,16 @@ namespace DataWebApp.Model
             command.Parameters.AddWithValue("@id", id);
 
             SQLDB.SQLDB.ExecuteNoneQuery(command);
+        }
+        public DataTable Login(string name, string cmt, string birthday)
+        {
+            SqlCommand command = new SqlCommand("Select * from User_ where name=@name and cmt=@cmt and birthday=@birthday and status='True'");
+            command.CommandType = CommandType.Text;
+            command.Parameters.AddWithValue("@name", name);
+            command.Parameters.AddWithValue("@cmt", cmt);
+            command.Parameters.AddWithValue("@birthday", XyLyNgayThang.XuLyChuoiNgayThang(birthday));
+
+            return SQLDB.SQLDB.GetData(command);
         }
     }
 }

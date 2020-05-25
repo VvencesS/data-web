@@ -6,23 +6,160 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %></title>
 
-    <asp:PlaceHolder runat="server">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="fontawesome-free-5.13.0-web/css/fontawesome.css" rel="stylesheet" />
+    <link href="fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet" />
+
+    <link href="Content/style.css" rel="stylesheet" />
+    <link href="Content/Uploadimg.css" rel="stylesheet" />
+    <%--<asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />--%>
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
+
+        <div class="header">
+            <nav class="navbar navbar-expand-sm navbar-light bg-white p-0">
+                <div class="container">
+                    <a class="navbar-brand p-0" href="#">
+                        <img class="img-fluid logo" src="/../../images/admin/logo-epu.svg" alt="">
+                    </a>
+
+                    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavId">
+                        <ul class="navbar-nav mt-lg-0 ml-auto">
+                            <li class="nav-item">
+                                <div class="input-group search">
+                                    <input type="text" class="form-control border-right-0 py-0 bg-color font-size-13 color-text" placeholder="Tìm kiếm..." aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-light input-group-text border-left-0 py-0 bg-color font-size-13 color-text" type="button" id="basic-addon2"><i class="fas fa-search"></i></button>
+                                        <!-- <span class="input-group-text border-left-0 py-0 bg-color font-size-13 color-text" id="basic-addon2"><i class="fas fa-search"></i></span> -->
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link color-while" href="#"><i class="fas fa-user admin-icon"></i></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle color-while" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=Session["name"] %></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                    <a class="dropdown-item" href="#">Thông tin tài khoản</a>
+                                    <a class="dropdown-item" href="#">Đăng xuất</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link color-while" href="#"><i class="far fa-bell notification-icon"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link language-img" href="#">
+                                    <img class="img-fluid language" src="/../../images/admin/united-kingdom.png" alt=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="main-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="menu-bar">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Quản lý danh sách nhóm cố định <i class="fas fa-sort-down float-right"></i></a>
+                                    <ul class="nav justify-content-center submenu-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i>Import danh sách nhóm</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i>Xem/Sửa/Xóa danh sách nhóm</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Quản lý dữ liệu người dùng <i class="fas fa-sort-down float-right"></i></a>
+                                    <ul class="nav justify-content-center submenu-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i>Dữ liệu người dùng</a>
+                                            <ul class="nav justify-content-center submenu-2">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#"><i class="fas fa-cog color-orange"></i>Import dữ liệu người dùng</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="#"><i class="fas fa-cog color-orange"></i>Xem/Sửa/Xóa dữ liệu người dùng</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i>Quản lý kích hoạt tài khoản</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Quản lý câu hỏi <i class="fas fa-sort-down float-right"></i></a>
+                                    <ul class="nav justify-content-center submenu-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i>Thêm mới câu hỏi</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i>Chỉnh sửa câu hỏi</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Quản lý duyệt ảnh <i class="fas fa-sort-down float-right"></i></a>
+                                    <ul class="nav justify-content-center submenu-1">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i>Duyệt ảnh chi tiết một nhóm</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer py-5 bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">Thiết kế và phát triển bởi Nhóm 1 - D12CNPM2 © 2020</div>
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="js/javascript.js"></script>
+
+
+
+
+
+
+
+
+
+        <%--<asp:ScriptManager runat="server">
+            <Scripts>--%>
+        <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+        <%--Framework Scripts--%>
+        <%--<asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
@@ -33,9 +170,9 @@
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
+                <asp:ScriptReference Name="WebFormsBundle" />--%>
+        <%--Site Scripts--%>
+        <%-- </Scripts>
         </asp:ScriptManager>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -64,8 +201,7 @@
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
-        </div>
-
+        </div>--%>
     </form>
 </body>
 </html>

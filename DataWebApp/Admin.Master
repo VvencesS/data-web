@@ -74,13 +74,13 @@
                             <div class="menu-bar pb-5">
                                 <ul class="nav justify-content-center pb-5">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Quản lý danh sách nhóm cố định <i class="fas fa-sort-down float-right"></i></a>
+                                        <a class="nav-link" href="XemDanhSachNhom.aspx">Quản lý danh sách nhóm cố định <i class="fas fa-sort-down float-right"></i></a>
                                         <ul class="nav justify-content-center submenu-1">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i> Import danh sách nhóm</a>
+                                                <a class="nav-link" href="XemDanhSachNhom.aspx"><i class="fas fa-cogs color-orange"></i> Thêm danh sách nhóm</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i> Xem/Sửa/Xóa danh sách nhóm</a>
+                                                <a class="nav-link" href="XemDanhSachNhom.aspx"><i class="fas fa-cogs color-orange"></i> Xem/Sửa/Xóa danh sách nhóm</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -91,34 +91,34 @@
                                                 <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i> Dữ liệu người dùng</a>
                                                 <ul class="nav justify-content-center submenu-2">
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="#"><i class="fas fa-cog color-orange"></i> Import dữ liệu người dùng</a>
+                                                        <a class="nav-link" href="ImportDuLieuNguoiDung.aspx"><i class="fas fa-cog color-orange"></i> Import dữ liệu người dùng</a>
                                                     </li>
                                                     <li class="nav-item">
-                                                        <a class="nav-link" href="#"><i class="fas fa-cog color-orange"></i> Xem/Sửa/Xóa dữ liệu người dùng</a>
+                                                        <a class="nav-link" href="XemDuLieuNguoiDung.aspx"><i class="fas fa-cog color-orange"></i> Xem/Sửa/Xóa dữ liệu người dùng</a>
                                                     </li>
                                                 </ul>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i> Quản lý kích hoạt tài khoản</a>
+                                                <a class="nav-link" href="KichHoatTaiKhoanNhom.aspx"><i class="fas fa-cogs color-orange"></i> Quản lý kích hoạt tài khoản</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Quản lý câu hỏi <i class="fas fa-sort-down float-right"></i></a>
+                                        <a class="nav-link" href="XemSuaXoa.aspx">Quản lý câu hỏi <i class="fas fa-sort-down float-right"></i></a>
                                         <ul class="nav justify-content-center submenu-1">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i> Thêm mới câu hỏi</a>
+                                                <a class="nav-link" href="ThemMoi.aspx"><i class="fas fa-cogs color-orange"></i> Thêm mới câu hỏi</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i> Chỉnh sửa câu hỏi</a>
+                                                <a class="nav-link" href="XemSuaXoa.aspx"><i class="fas fa-cogs color-orange"></i> Chỉnh sửa câu hỏi</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Quản lý duyệt ảnh <i class="fas fa-sort-down float-right"></i></a>
+                                        <a class="nav-link" href="DuyetAnhTheoNhom.aspx">Quản lý duyệt ảnh <i class="fas fa-sort-down float-right"></i></a>
                                         <ul class="nav justify-content-center submenu-1">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#"><i class="fas fa-cogs color-orange"></i> Duyệt ảnh chi tiết một nhóm</a>
+                                                <a class="nav-link" href="DuyetAnhTheoNhom.aspx"><i class="fas fa-cogs color-orange"></i> Duyệt ảnh chi tiết một nhóm</a>
                                             </li>
                                         </ul>
                                     </li>

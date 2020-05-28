@@ -1974,6 +1974,7 @@
     </Compile>
     <Compile Include="Model\clsAdmin.cs" />
     <Compile Include="Model\Group.cs" />
+    <Compile Include="Model\Image_.cs" />
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2002,6 +2003,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="images\question\" />
+    <Folder Include="images\UserImages\" />
     <Folder Include="UploadFile\" />
   </ItemGroup>
   <ItemGroup>

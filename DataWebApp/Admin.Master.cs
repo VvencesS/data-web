@@ -13,5 +13,11 @@ namespace DataWebApp
         {
 
         }
+
+        protected void lnkDangXuat_Click(object sender, EventArgs e)
+        {
+            Session["username"] = null;
+            Response.Redirect("~/admin/LoginAdmin.aspx");
+        }
     }
 }

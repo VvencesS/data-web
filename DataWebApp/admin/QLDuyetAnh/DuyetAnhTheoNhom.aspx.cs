@@ -13,6 +13,11 @@ namespace DataWebApp.admin.QLDuyetAnh
         Group _group = new Group();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Nếu chưa login
+            if (Session["username"] == null)
+            {
+                Response.Redirect("../../LoginAdmin.aspx");
+            }
             if (!IsPostBack)
             {
                 LoadGroupAll();

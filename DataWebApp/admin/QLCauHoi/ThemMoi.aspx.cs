@@ -14,7 +14,11 @@ namespace DataWebApp.admin.QLCauHoi
         Question _question = new Question();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Nếu chưa login
+            if (Session["username"] == null)
+            {
+                Response.Redirect("../../LoginAdmin.aspx");
+            }
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)

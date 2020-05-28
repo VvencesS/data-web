@@ -16,6 +16,11 @@ namespace DataWebApp.admin.QLDuyetAnh
         Image_ _image = new Image_();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Nếu chưa login
+            if (Session["username"] == null)
+            {
+                Response.Redirect("../../LoginAdmin.aspx");
+            }
             string idGroup = Request["id"];
             if (idGroup != "")
             {

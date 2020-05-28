@@ -134,14 +134,14 @@ namespace DataWebApp
                 if (hdInsert.Value == "insert")
                 {
                     //Thêm mới
-                    _image.Insert(file, int.Parse(hdIDUser.Value.ToString()), int.Parse(hdIDQues.Value.ToString()), DateTime.Now, DateTime.Now, false);
+                    _image.Insert(file, int.Parse(hdIDUser.Value.ToString()), int.Parse(hdIDQues.Value.ToString()), DateTime.Now, DateTime.Now, false, "");
                     loadImgQuestion();
                     mul.ActiveViewIndex = 0;
                 }
                 else
                 {
                     //Cập nhật
-                    _image.Update(int.Parse(hdIDImg.Value.ToString()), file, DateTime.Now);
+                    _image.Update(int.Parse(hdIDImg.Value.ToString()), file, DateTime.Now, "");
                     loadImgQuestion();
                     mul.ActiveViewIndex = 1;
                 }

@@ -125,7 +125,7 @@
                                     <td>
                                         <div class="item ml-5 mb-5">
                                             <p class="question">
-                                                <span class="font-weight-bold">Câu hỏi: </span><%#:Eval("[content]") %> <span style="color: red;">*</span>
+                                                <span class="font-weight-bold">Câu hỏi: </span><%#:Eval("[content]") %> <span style="color: red;">*</span>(<%#:Eval("status") %>)
                                                 <i class="fas fa-camera custom-file" id="uploadfile">
                                                     <asp:FileUpload ID="fileUpImg" runat="server" class="custom-file-input" />
                                                 </i>
@@ -137,7 +137,7 @@
                                         </div>
                                     </td>
                                     <td>&nbsp</td>
-                                    <td>&nbsp</td>
+                                    <td><span style="color: red;"><%#:Eval("note") %></span></td>
                                     <td>&nbsp</td>
                                     <td>
                                         <asp:LinkButton ID="lnkUpdate" runat="server" CommandArgument='<%#:Eval("id_Image") %>' CssClass="px-2 btn btn-primary font-size-08rem">
@@ -173,7 +173,7 @@
                                     </div>
                                 </td>
                                 <td>&nbsp</td>
-                                <td>&nbsp</td>
+                                <td><span style="color: red;"><%#:Eval("note") %></span></td>
                                 <td>&nbsp</td>
                                 <td>
                                     <asp:LinkButton ID="lnkInsertUpdate" runat="server" CommandArgument='<%#:Eval("id_Image") %>' CssClass="px-2 btn btn-primary font-size-08rem" OnClick="lnkInsertUpdate_Click">
@@ -187,7 +187,7 @@
             </asp:MultiView>
         </div>
     </div>
-    <asp:LinkButton ID="lnkLuu" runat="server"  CssClass="px-4 btn btn-warning font-size-08rem float-right mb-4" OnClick="lnkLuu_Click">
+    <asp:LinkButton ID="lnkLuu" runat="server" CssClass="px-4 btn btn-warning font-size-08rem float-right mb-4" OnClick="lnkLuu_Click">
         Lưu
     </asp:LinkButton>
 </asp:Content>
